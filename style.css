@@ -1,0 +1,100 @@
+body{
+    background-color: #f0f3f7;
+}
+.nav{
+display:flex;
+position: fixed;
+align-items:center;
+width: 100%;
+top: 0;
+left: 0;
+background-color: #f0f3f7;
+box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
+}
+
+.nav-content{
+    margin-right: 27px;
+    cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.nav-logo{
+    margin-right:30%;
+    margin-left: 7px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+
+.login{
+    margin-left: auto;
+    cursor:pointer;
+    margin-right:5px;
+}
+
+.signup{
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+
+.nav-content:hover,
+.nav-content.active{
+    color: white;
+    background-color: rgb(8, 2, 2);
+    border-radius: 20px;
+}
+
+.mylist{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mylist-content{
+   padding: 5px; 
+   text-align: center;
+   margin-right: 15px;
+   min-width: 300px;
+   flex-wrap: wrap;
+   margin-top: 8px;
+   box-shadow:rgb(73, 64, 64) 0px 5px 5px 2px;
+}
+
+.add-collection-title{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 35px;
+}
+
+.search{
+    display: flex;
+    
+}
+
+.search-text{
+    margin-left: 30%;
+    margin-right: 10px;
+    border-radius: 20px;
+    margin-top: 15px;
+    padding: 10px 40px;
+}
+
+.search-btn{
+    cursor: pointer;
+    margin-top:15px;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+.search-btn:hover{
+    color: white;
+    background-color: rgb(8, 2, 2);
+}
+
+
+.Testimonials{
+  display: flex;
+}
+
+.content-1{
+
+}
