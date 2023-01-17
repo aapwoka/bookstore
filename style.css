@@ -60,6 +60,12 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
    box-shadow:rgb(73, 64, 64) 0px 5px 5px 2px;
 }
 
+.mylist-content:hover{
+    color: #f0f3f7;
+    background-color: #5175a5;
+    transform: scale(1.1);
+}
+
 .add-collection-title{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-left: 35px;
