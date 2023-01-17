@@ -112,3 +112,16 @@ transform: translateX(-0%);
 transition: 1s ease-in-out;
 
 }
+.about{
+    display: flex;
+    background-color: #0f1722;
+    text-align: center;
+    margin-top: 12px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #f0f3f7;
+    height: 160px;
+}
+
