@@ -38,7 +38,7 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
 }
 
 
-.nav-content:hover,
+
 .nav-content.active{
     color: white;
     background-color: rgb(8, 2, 2);
