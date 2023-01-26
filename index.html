@@ -7,11 +7,11 @@
 <nav class="nav">
 <h2 class="nav-logo">MoodRight</h2>
 <h3 class="nav-content">Home</h3>
-<h3 class="nav-content">About</h3>
+<h3 class="nav-content" onclick=about()>About</h3>
 <h3 class="nav-content">Add collection</h3>
-<h3 class="nav-content">Feedbacks</h3>
-<h4 class="login">Login</h4> |  
-<h4 class="signup">Sign Up</h4>
+<h3 class="nav-content">Feedbacks</h3> 
+<h4 class="login" id="signIn" onclick=signInPage()>Sign in |</h4>
+<h4 class="signup" id="signup">Sign Up</h4>
 </nav>
 <h2>MyList</h2>
 <div class="search">
@@ -96,7 +96,7 @@
 </div>
 </div>
 
-<div class="about">
+<div class="about" id="about">
     <div class="about-us">
         <h2>ABOUT US</h2>
         <p>The site is one of its kind. It has great user interface and awesome user experience.</p>
@@ -125,4 +125,5 @@
 </div>
 <h3 class="copyright">Copyright 2023</h3>
 </body>
+<script src="index.js"></script>
 </html>
