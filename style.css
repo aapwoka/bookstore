@@ -29,6 +29,7 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
     margin-left: auto;
     cursor:pointer;
     margin-right:5px;
+    color: black;
 }
 
 .signup{
@@ -152,4 +153,15 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
 
 .copyright{
     margin-left: 500px;
+}
+
+.signBody{
+  background-color: #f0f3f7;
+}
+
+.signContent{
+    border-radius: 5px;
+    background-color: rgb(230, 221, 210);
+    width: 500px;
+    height: 500px;
 }
