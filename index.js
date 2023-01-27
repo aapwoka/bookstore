@@ -21,3 +21,6 @@ function signInPage(){
 function about(){
   window.location="#about"
 }
+function openTab(th){
+  window.open(th.name,'_self');
+}
