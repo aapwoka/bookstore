@@ -164,4 +164,18 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
     background-color: rgb(230, 221, 210);
     width: 500px;
     height: 500px;
+    padding-left:30px;
+    flex-wrap:wrap
+}
+
+.signIndetails{
+    min-width:300px;
+    display:flex;
+}
+#addOfflineBtn{
+color:white;
+background-color:blue;
+padding: 11px 17px;
+border-radius:5px
+margin-bottom:35px;
 }
