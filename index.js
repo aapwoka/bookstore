@@ -32,3 +32,5 @@ function about(){
 function openTab(th){
   window.open(th.name,'_self');
 }
+function signIn(){
+}
