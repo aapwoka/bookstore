@@ -140,14 +140,13 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
 
 .about{
     display: flex;
-    background-color: #0f1722;
     text-align: center;
     margin-top: 12px;
     width: 100%;
     bottom: 0;
     left: 0;
     right: 0;
-    color: #f0f3f7;
+    color: blue;
 }
 
 
