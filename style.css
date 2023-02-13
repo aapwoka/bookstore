@@ -1,5 +1,7 @@
 body{
     background-color: rgb(230, 221, 210);
+    
+     
 }
 .nav{
 display:flex;
@@ -49,6 +51,7 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
 .mylist{
     display: flex;
     flex-wrap: wrap;
+    margin-bottom:55px
 }
 
 .mylist-content{
@@ -90,10 +93,21 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
     padding: 10px 20px;
     border-radius: 15px;
 }
-
 .search-btn:hover{
     color: white;
     background-color: rgb(8, 2, 2);
+}
+
+#addOfflineBtn{
+    cursor: pointer;
+    margin-top:15px;
+    padding: 10px 25px;
+    margin-left: 5px;
+    border-radius: 15px;
+}
+#addOfflineBtn:hover{
+    color: white;
+    background-color: #5175a5;
 }
 .title{
     font-style: oblique;
@@ -138,24 +152,34 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
     padding: 5px;
 }
 
+.user_review_inputs{
+    display: flex;
+}
+.textarea{
+  width: 50%;
+  margin-top: 30px;
+}
+
 .about{
     display: flex;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 55px;
     width: 100%;
     bottom: 0;
-    left: 0;
+    left: 5;
     right: 0;
-    color: blue;
+color:blue;
+font-weight:255%;
 }
 
 
 .copyright{
-    margin-left: 500px;
+    margin-left: 50%;
 }
 
 .signBody{
   background-color: #f0f3f7;
+  margin-left:30%;
 }
 
 .signContent{
@@ -163,18 +187,11 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
     background-color: rgb(230, 221, 210);
     width: 500px;
     height: 500px;
+flex-wrap:wrap;
     padding-left:30px;
-    flex-wrap:wrap
 }
 
 .signIndetails{
-    min-width:300px;
     display:flex;
-}
-#addOfflineBtn{
-color:white;
-background-color:blue;
-padding: 11px 17px;
-border-radius:5px
-margin-bottom:35px;
+    min-width:300px;
 }
