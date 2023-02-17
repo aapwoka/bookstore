@@ -156,20 +156,39 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
     display: flex;
 }
 .textarea{
-  width: 50%;
+  width: 53%;
+  height: 70px;
   margin-top: 30px;
+  border-radius: 5px;
+}
+.submit-button{
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.about-header{
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .about{
     display: flex;
     text-align: center;
-    margin-top: 55px;
+    margin-top: 25px;
     width: 100%;
     bottom: 0;
     left: 5;
     right: 0;
 color:blue;
 font-weight:255%;
+}
+.about-details{
+   color: #d1660e;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   font-size: large;
+   font-weight: bold;
 }
 
 
