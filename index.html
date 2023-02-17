@@ -5,28 +5,27 @@
 </head>
 <body>
 <nav class="nav">
-<h2 class="nav-logo">BookStore</h2>
-<h3 class="nav-content">Home</h3>
+<h2 class="nav-logo">MoodRight</h2>
+<h3 class="nav-content" onclick=home()>Home</h3>
 <h3 class="nav-content" onclick=about()>About</h3>
-<h3 class="nav-content">Add collection</h3>
-<h3 class="nav-content">Feedbacks</h3> 
+<h3 class="nav-content" onclick=feedback()>Feedbacks</h3> 
 <h4 class="login" id="signIn" onclick=signInPage()>Sign in |</h4>
 <h4 class="signup" id="signup">Sign Up</h4>
 </nav>
 <h2>MyList</h2>
-<div class="search">
-    <input type="text" class="search-text" placeholder="Search Online">
-    <button class="search-btn" onclick=OpenLink(>Search</button>
-     <button id="addOfflineBtn" onclick="document.getElementById('file-input').click();">Add offline</button>
+<div class="search" id="homePage">
+    <input type="text" class="search-text" placeholder="Search Online" id="searchOnline">
+    <button class="search-btn" onclick=Search()>Search</button>
+    <button id="addOfflineBtn" onclick="document.getElementById('file-input').click();">Add offline</button>
 </div>
-    <div>
+<div>
     <input id="file-input" type="file" name="name" style="display: none;"/>
   </div>
-<div class="mylist">
+<div class="mylist" >
     <div class="mylist-content">
        <h2>Book Title: 48 Laws of power</h2>
        <p>Author: Robert Greene</p>
-      <button onclick="openTab(this)"  name="The48LawsofPower.pdf">Read</b
+       <button onclick="openTab(this)"  name="The48LawsofPower.pdf">Read</button>
        <button>Delete</button>
     </div>
     <div class="mylist-content">
@@ -59,8 +58,9 @@
         <button>Read</button>
         <button>Delete</button>
     </div>
-
+    <div id="feedbacks"></div>
 </div>
+
 <h2 class="title">Client Testimonials</h2>
 <div class="containers">
  <div class="container-1">
@@ -99,37 +99,38 @@
    </div>
 </div>
 </div>
-    <div>
+
+<div >
 <h3>We want to hear from you...</h3>
 <div class="user_review_inputs">
-<label>Name: </label>
+<label style="color:#d1660e; margin-right:6px;">Name: </label>
 <input type="text"/>
-<label>Email: </label>
-<input type="text"/></div>
+<label style="margin-left: 5px;  margin-right:6px; color:#d1660e;">Email: </label>
+<input type="text"/>
+</div>
 <textarea class="textarea"></textarea>
-<div>
-   <button>Submit</button> 
+<div style="text-align: center;">
+   <button class="submit-button">Submit</button> 
 </div>
 
 </div>
-
 
 <div class="about" id="about">
     <div class="about-us">
-        <h2>ABOUT US</h2>
-        <p>The site is one of its kind. It has great user interface and awesome user experience.</p>
+        <h2 class="about-header">ABOUT US</h2>
+        <p class="about-details">The site is one of its kind. It has great user interface and awesome user experience.</p>
        
         </div>
-        <div class="our-team">
-            <h2>OUR TEAM</h2>
-            <p>The site is one of its kind. It has great user interface and awesome user experience</p>
+        <div class="our-team" >
+            <h2 class="about-header">OUR TEAM</h2>
+            <p class="about-details">The site is one of its kind. It has great user interface and awesome user experience</p>
             </div>
             <div class="getin-touch">
-                <h2>GET IN TOUCH</h2>
-                <p>The site is one of its kind. It has great user interface and awesome user experience</p>
+                <h2 class="about-header">GET IN TOUCH</h2>
+                <p class="about-details">The site is one of its kind. It has great user interface and awesome user experience</p>
             </div>
 </div>
-<h3 class="copyright">BookStore</h3>
+<h3 class="copyright">Copyright 2023</h3>
 </body>
-<script src="index.js"></script>
+<script type="text/javascript" src="index.js"></script>
 </html>
