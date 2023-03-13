@@ -1,5 +1,3 @@
-var signInBtn = document.getElementById("signIn")
-//var searchOnline = "Kiyosaki";//document.getElementById("searchOnline").value;
 
 function signInPage(){
     window.location="signIn.html"
