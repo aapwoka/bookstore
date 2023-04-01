@@ -1,5 +1,5 @@
 // xxxxxxxxxx Working For Sign Up Form xxxxxxxxxx
-// xxxxxxxxxx Full Name Validation xxxxxxxxxx
+
 function checkUserFullName(){
     var userSurname = document.getElementById("userFullName").value;
     var flag = false;
@@ -323,7 +323,7 @@ function saveProfile(){
         });
     }
 }
-// xxxxxxxxxx Working For Sign Out xxxxxxxxxx
+// xxxxxxSign Out xxxxxxxxxx
 function signOut(){
    
             
