@@ -25,7 +25,7 @@ function checkUserSurname(){
         document.getElementById("userSurnameError").style.display = "none";
     }
 }
-// xxxxxxxxxx Email Validation xxxxxxxxxx
+// xxxxxx Email Validation xxxxxxx
 function checkUserEmail(){
     var userEmail = document.getElementById("userEmail");
     var userEmailFormate = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
