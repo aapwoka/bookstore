@@ -1,4 +1,5 @@
 // xxxxxxxxxx Working For Sign Up Form xxxxxxxxxx
+// xxxxxxxxxx Full Name Validation xxxxxxxxxx
 
 function checkUserFullName(){
     var userSurname = document.getElementById("userFullName").value;
@@ -25,7 +26,7 @@ function checkUserSurname(){
         document.getElementById("userSurnameError").style.display = "none";
     }
 }
-// xxxxxx Email Validation xxxxxxx
+// xxxxxxxxxx Email Validation xxxxxxxxxx
 function checkUserEmail(){
     var userEmail = document.getElementById("userEmail");
     var userEmailFormate = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -98,14 +99,10 @@ function signUp(){
             }
             var firebaseRef = firebase.database().ref();
             var userData = {
-                userFullName: userFullName,
-                userSurname: userSurname,
+                userFirstname:userFullName,
+                userSurname:userSurname,
                 userEmail: userEmail,
                 userPassword: userPassword,
-                userFb: "https://www.facebook.com/",
-                userTw: "https://twitter.com/",
-                userGp: "https://plus.google.com/",
-                userBio: "User biography",
             }
             firebaseRef.child(uid).set(userData);
             window.alert("Succesfully Signed Up.Continue to sign In...").then((value) => {
@@ -190,11 +187,6 @@ function checkUserSIPassword(){
     }
 }
 
-function uploadFile(){
-    document.getElementById('file-input').click();
-    
-    
-}
 // xxxxxxxxxx Check email or password exsist in firebase authentication xxxxxxxxxx    
 function signIn(){
     var userSIEmail = document.getElementById("userSIEmail").value;
@@ -215,7 +207,7 @@ function signIn(){
             window.alert("Succesfully Signed In")
             firebase.auth().onAuthStateChanged(user => {
                 if(user) {
-                  window.location = 'home.html'; //After successful login, user will be redirected to profile.html
+                  window.location = 'book_store.html'; //After successful login, user will be redirected to profile.html
                 }
               });
 
@@ -323,7 +315,7 @@ function saveProfile(){
         });
     }
 }
-// xxxxxxSign Out xxxxxxxxxx
+// xxxxxxxxxx Working For Sign Out xxxxxxxxxx
 function signOut(){
    
             
@@ -335,4 +327,62 @@ function signOut(){
     
       });
 
+}
+
+var BOOKLIB = []
+
+
+
+//Book selection for upload
+  function loadLocalBook(){
+    var input = document.getElementById("inputed")
+    input.addEventListener("change",getFile)
+    input.click()
+    console.log("working")
+  }
+
+  var bookTitle = document.getElementById("bookTitle").value
+  var bookAuthor = document.getElementById("bookAuthor").value
+
+   function getFile(evt){
+    let reader = new FileReader()
+    reader.onload = () =>{
+        let url = reader.result
+        //do whatever with the url(insert to local storage)
+    var insertTo = document.getElementById("insertion");
+    insertTo.addEventListener("click",()=>{
+       if(bookTitle===""){
+            window.alert("Please enter the title of the book")
+        }if (bookAuthor==="") {
+            window.alert("Please enter the title of the book")
+        } else {
+            var books = {
+                Title: bookTitle,
+               Author:bookAuthor,
+                book:url
+            }
+        //firebase insertion of selected book
+      var user = firebase.auth().currentUser;
+      var uid;
+      if(user!=null){
+        uid=user.uid;
+      }
+      var firebaseRef = firebase.database().ref()
+
+      firebaseRef.child('users/' + uid).push(books)
+        } 
+    })
+
+       
+
+    }
+    reader.readAsDataURL(evt.target.files[0])
+   }
+
+   
+   
+
+function deleteBook(id){
+var mybook = document.getElementById("mybook1")
+mybook.innerHTML = ` `;
 }
