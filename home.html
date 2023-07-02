@@ -1,1 +1,182 @@
+<!Doctype html>
+<head>
+<title>Embracing transformation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <h2 class="nav-logo">MoodRight</h2>
+    <h3 class="nav-content" onclick=home()>Home</h3>
+    <h3 class="nav-content" onclick=about()>About</h3>
+    <h3 class="nav-content" onclick=feedback()>Feedbacks</h3> 
+    <h4 class="login" id="signIn" onclick=signInPage()>Sign In  | </h4>
+    <h4 class="signup" id="signup" onclick=signUpPage()>Sign Up</h4>
+    </nav>
+<h2>MyList</h2>
+<div class="search" id="homePage">
+    <input type="text" class="search-text" placeholder="Search Online" id="searchOnline">
+    <button class="search-btn" onclick=Search()>Search</button>
+    <button id="addOfflineBtn" onclick="loadLocalBook()">Add offline</button>
+   
+</div>
+<img id="myimg">
+<div>
+    <input id="file-input" type="file" name="name" style="display: none;"/>
+  </div>
+<div class="mylist" >
+    <div class="mylist-content" id="mybook1">
+       <h2>Book Title: 48 Laws of power</h2>
+       <p>Author: Robert Greene</p>
+       <button onclick="openTab(this)"  name="The48LawsofPower.pdf">Read</button>
+       <button onclick="deleteBook()">Delete</button>
+    </div>
+    <div class="mylist-content">
+        <h2>Book Title: 48 Laws of power</h2>
+        <p>Author: Robert Greene</p>
+        <button>Read</button>
+        <button>Delete</button>
+    </div>
+    <div class="mylist-content">
+        <h2>Book Title: 48 Laws of power</h2>
+        <p>Author: Robert Greene</p>
+        <button>Read</button>
+        <button>Delete</button>
+    </div>
+    <div class="mylist-content">
+        <h2>Book Title: 48 Laws of power</h2>
+        <p>Author: Robert Greene</p>
+        <button>Read</button>
+        <button>Delete</button>
+    </div>
+    <div class="mylist-content">
+        <h2>Book Title: 48 Laws of power</h2>
+        <p>Author: Robert Greene</p>
+        <button>Read</button>
+        <button>Delete</button>
+    </div>
+    <div class="mylist-content">
+        <h2>Book Title: 48 Laws of power</h2>
+        <p>Author: Robert Greene</p>
+        <button>Read</button>
+        <button>Delete</button>
+    </div>
+    <div id="feedbacks"></div>
+</div>
+
+<h2 class="title">Client Testimonials</h2>
+<div class="containers">
+ <div class="container-1">
+   <p>The experience was amazing and thumbs up to the recommendations. I thought I was stuck at getting what to watch until I got here.</p>
+   <div class="img-section">
+     <img src="./img/jane.jpg" class="jennifer">
+     <div>
+     <h3>Jane Gregson</h3>
+     <p>Publishing Director</p>  
+     </div>
+
+   </div>
+ </div>
+ <div class="container-2">
+   <p>The experience was amazing and thumbs up to the recommendations. I thought I was stuck at getting what to watch until I got here.</p>
+   <div class="img-section">
+     <img src="./img/peter.jpg" class="jennifer">
+     <div>
+     <h3>Peter Fisher</h3>
+     <p>Editing Director</p>
+     </div>
+
+   </div>
+</div>
+<div class="container-3">
+   <p>The experience was amazing and thumbs up to the recommendations. I thought I was stuck at getting what to watch until I got here.</p>
+   <div class="img-section">
+   <img src="./img/jennifer.jpg" class="jennifer">
+   <div>
+     <h3>Jeniffer Anderson</h3>
+        <p >Accounting Director</p> 
+   </div>
+   
+
+
+   </div>
+</div>
+</div>
+
+<div >
+<h3>We want to hear from you...</h3>
+<div class="user_review_inputs">
+<label style="color:#d1660e; margin-right:6px;">Name: </label>
+<input type="text"/>
+<label style="margin-left: 5px;  margin-right:6px; color:#d1660e;">Email: </label>
+<input type="text"/>
+</div>
+<textarea class="textarea"></textarea>
+<div style="text-align: center;">
+   <button class="submit-button">Submit</button> 
+</div>
+
+</div>
+
+<div class="about" id="about">
+    <div class="about-us">
+        <h2 class="about-header">ABOUT US</h2>
+        <p class="about-details">The site is one of its kind. It has great user interface and awesome user experience.</p>
+       
+        </div>
+        <div class="our-team" >
+            <h2 class="about-header">OUR TEAM</h2>
+            <p class="about-details">The site is one of its kind. It has great user interface and awesome user experience</p>
+            </div>
+            <div class="getin-touch">
+                <h2 class="about-header">GET IN TOUCH</h2>
+                <p class="about-details">The site is one of its kind. It has great user interface and awesome user experience</p>
+            </div>
+</div>
+<h3 class="copyright">Copyright 2023</h3>
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+   <!-- Firebase -->
+    
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase-analytics.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase-storage.js"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/4.3.0/firebase-app.js";
+  // Your web app's Firebase configuration
+  var firebaseConfig =   {
+    apiKey: "AIzaSyCTt4dRFFg8_zjrG1nRnRhLxzhmn17PlMg",
+    authDomain: "bookstore-d9571.firebaseapp.com",
+    databaseURL: "https://bookstore-d9571-default-rtdb.firebaseio.com",
+    projectId: "bookstore-d9571",
+    storageBucket: "bookstore-d9571.appspot.com",
+    messagingSenderId: "774627348435",
+    appId: "1:774627348435:web:a252119042f72664036926",
+    measurementId: "G-V3DR4Y89NL"
+  };
+  // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL}
+ from "https://www.gstatic.com/firebasejs/4.3.0/firebase-storage.js";
+
+ 
+</script>
+    
+    <!-- Custom JavaScript -->
+    <script src="index.js"></script>
+</body>
+</html>
 
