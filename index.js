@@ -341,25 +341,25 @@ var BOOKLIB = []
     console.log("working")
   }
 
-  var bookTitle = document.getElementById("bookTitle").value
-  var bookAuthor = document.getElementById("bookAuthor").value
-
    function getFile(evt){
+    var bookTitle = document.getElementById("bookTitle").value
+    var bookAuthor = document.getElementById("bookAuthor").value
     let reader = new FileReader()
     reader.onload = () =>{
         let url = reader.result
+        console.log(url)
+        console.log(bookTitle)
+        console.log(bookAuthor)
         //do whatever with the url(insert to local storage)
-    var insertTo = document.getElementById("insertion");
-    insertTo.addEventListener("click",()=>{
        if(bookTitle===""){
             window.alert("Please enter the title of the book")
         }if (bookAuthor==="") {
             window.alert("Please enter the title of the book")
         } else {
-            var books = {
-                Title: bookTitle,
+            var book = {
+               Title: bookTitle,
                Author:bookAuthor,
-                book:url
+               book:url
             }
         //firebase insertion of selected book
       var user = firebase.auth().currentUser;
@@ -369,11 +369,8 @@ var BOOKLIB = []
       }
       var firebaseRef = firebase.database().ref()
 
-      firebaseRef.child('users/' + uid).push(books)
+      firebaseRef.child('users/' + uid).push(book)
         } 
-    })
-
-       
 
     }
     reader.readAsDataURL(evt.target.files[0])
