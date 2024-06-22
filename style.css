@@ -27,7 +27,6 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
     font-weight: 400;
 }
 #uploadForm{
-    display:none;
     padding-left:10px;
     padding-top:10px;
     width:750px;
