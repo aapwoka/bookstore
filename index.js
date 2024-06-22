@@ -9,13 +9,17 @@ function uploadFiles() {
   const url = 'https://httpbin.org/post';
   const method = 'post';
 
-  const xhr = new XMLHttpRequest();
+//  const xhr = new XMLHttpRequest();
 
   const data = new FormData(form);
 
-  xhr.open(method, url);
-  xhr.send(data);
+//  xhr.open(method, url);
+  //xhr.send(data);
     
+    var user = firebase.auth().currentUser;
+    var firebaseRef = firebase.database().ref(user);
+    var userRef = firebaseRef.child("myBookLIst")
+    userRef.push(data)
 }
 
 function checkUserFullName(){
@@ -87,26 +91,17 @@ function checkUserBio(){
 }
 // xxxxxxxxxx Submitting and Creating new user in firebase authentication xxxxxxxxxx
 function signUp(){
-    var userFullName = document.getElementById("userFullName").value;
-    var userSurname = document.getElementById("userSurname").value;
-    var userEmail = document.getElementById("userEmail").value;
-    var userPassword = document.getElementById("userPassword").value;
-    var userFullNameFormate = /^([A-Za-z.\s_-])/;    
+    var userEmail = document.getElementById("userSUEmail").value;
+    var userPassword = document.getElementById("userSUPassword").value;
+  
     var userEmailFormate = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    var userPasswordFormate = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}/;      
 
-    var checkUserFullNameValid = userFullName.match(userFullNameFormate);
+  
     var checkUserEmailValid = userEmail.match(userEmailFormate);
-    var checkUserPasswordValid = userPassword.match(userPasswordFormate);
+    
 
-    if(checkUserFullNameValid == null){
-        return checkUserFullName();
-    }else if(userSurname === ""){
-        return checkUserSurname();
-    }else if(checkUserEmailValid == null){
+if(checkUserEmailValid == null){
         return checkUserEmail();
-    }else if(checkUserPasswordValid == null){
-        return checkUserPassword();
     }else{
         firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).then((success) => {
             var user = firebase.auth().currentUser;
@@ -115,13 +110,7 @@ function signUp(){
                 uid = user.uid;
             }
             var firebaseRef = firebase.database().ref();
-            var userData = {
-                userFirstname:userFullName,
-                userSurname:userSurname,
-                userEmail: userEmail,
-                userPassword: userPassword,
-            }
-            firebaseRef.child(uid).set(userData);
+
             window.alert("Succesfully Signed Up.Continue to sign In...").then((value) => {
               window.location="signIn.html"
                 
