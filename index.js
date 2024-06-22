@@ -16,8 +16,8 @@ function uploadFiles() {
 //  xhr.open(method, url);
   //xhr.send(data);
     
-    var user = firebase.auth().currentUser;
-    var firebaseRef = firebase.database().ref(user);
+    //var user = firebase.auth().currentUser;
+    var firebaseRef = firebase.database().ref();
     var userRef = firebaseRef.child("myBookLIst")
     userRef.push(data)
 }
@@ -129,7 +129,7 @@ if(checkUserEmailValid == null){
             window.alert("Succesfully Signed Up.Continue to sign In...").then((value) => {
               window.location="signIn.html"
                 
-            
+            });   
     }
 }
 
