@@ -5,6 +5,19 @@ function showUploadForm(){
     document.getElementById("uploadForm").style.display="block";
 }
 
+function uploadFiles() {
+  const url = 'https://httpbin.org/post';
+  const method = 'post';
+
+  const xhr = new XMLHttpRequest();
+
+  const data = new FormData(form);
+
+  xhr.open(method, url);
+  xhr.send(data);
+    
+}
+
 function checkUserFullName(){
     var userSurname = document.getElementById("userFullName").value;
     var flag = false;
