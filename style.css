@@ -26,7 +26,12 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 400;
 }
-
+#uploadForm{
+    width:150px;
+    height:55px;
+    background-color:grey;
+    border-radius:5px;
+    }
 .login{
     margin-left: auto;
     cursor:pointer;
