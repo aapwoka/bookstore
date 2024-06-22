@@ -27,7 +27,10 @@ box-shadow:rgb(73, 64, 64) 0px 2px 8px 0px;
     font-weight: 400;
 }
 #uploadForm{
-    width:150px;
+    display:none;
+    padding-left:10px;
+    padding-top:10px;
+    width:750px;
     height:55px;
     background-color:grey;
     border-radius:5px;
