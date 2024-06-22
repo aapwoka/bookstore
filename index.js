@@ -1,6 +1,10 @@
 // xxxxxxxxxx Working For Sign Up Form xxxxxxxxxx
 // xxxxxxxxxx Full Name Validation xxxxxxxxxx
 
+function showUploadForm(){
+    document.getElementById("uploadForm").style.display="block";
+}
+
 function checkUserFullName(){
     var userSurname = document.getElementById("userFullName").value;
     var flag = false;
