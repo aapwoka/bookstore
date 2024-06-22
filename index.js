@@ -129,9 +129,9 @@ if(checkUserEmailValid == null){
             window.alert("Succesfully Signed Up.Continue to sign In...").then((value) => {
               window.location="signIn.html"
                 
-            });   
+            } 
     }
-}
+});
 
 function home(){
   window.location="book_store.html"
