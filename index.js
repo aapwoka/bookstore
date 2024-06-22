@@ -63,6 +63,21 @@ function checkUserEmail(){
         document.getElementById("userEmailError").style.display = "none";
     }
 }
+function checkUserSUEmail(){
+    var userEmail = document.getElementById("userSUEmail");
+    var userEmailFormate = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var flag;
+    if(userEmail.value.match(userEmailFormate)){
+        flag = false;
+    }else{
+        flag = true;
+    }
+    if(flag){
+        document.getElementById("userEmailError").style.display = "block";
+    }else{
+        document.getElementById("userEmailError").style.display = "none";
+    }
+}
 // xxxxxxxxxx Password Validation xxxxxxxxxx
 function checkUserPassword(){
     var userPassword = document.getElementById("userPassword");
@@ -101,7 +116,7 @@ function signUp(){
     
 
 if(checkUserEmailValid == null){
-        return checkUserEmail();
+        return checkUserSUEmail();
     }else{
         firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).then((success) => {
             var user = firebase.auth().currentUser;
@@ -114,17 +129,7 @@ if(checkUserEmailValid == null){
             window.alert("Succesfully Signed Up.Continue to sign In...").then((value) => {
               window.location="signIn.html"
                 
-            });
-        }).catch((error) => {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            swal({
-                type: 'error',
-                title: 'Error',
-                text: "Error",
-            })
-        });
+            
     }
 }
 
@@ -198,38 +203,25 @@ function signIn(){
     var userSIEmail = document.getElementById("userSIEmail").value;
     var userSIPassword = document.getElementById("userSIPassword").value;
     var userSIEmailFormate = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    var userSIPasswordFormate = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}/;      
+     
 
     var checkUserEmailValid = userSIEmail.match(userSIEmailFormate);
-    var checkUserPasswordValid = userSIPassword.match(userSIPasswordFormate);
+ 
 
     if(checkUserEmailValid == null){
         return checkUserSIEmail();
-    }else if(checkUserPasswordValid == null){
-        return checkUserSIPassword();
     }else{
         firebase.auth().signInWithEmailAndPassword(userSIEmail, userSIPassword)
         .then((success) => {
             window.alert("Succesfully Signed In")
             firebase.auth().onAuthStateChanged(user => {
                 if(user) {
-                  window.location = 'book_store.html'; //After successful login, user will be redirected to profile.html
+                  window.location = 'book_store.html'; //After successful login, user will be redirected
                 }
-              });
+            
 
         })
         
-        .catch((error) => {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            swal({
-                type: 'error',
-                title: 'Error',
-                text: "Error",
-            })
-        });
-    }
 }
 // xxxxxxxxxx Working For Profile Page xxxxxxxxxx
 // xxxxxxxxxx Get data from server and show in the page xxxxxxxxxx
