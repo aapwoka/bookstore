@@ -6,15 +6,15 @@ function showUploadForm(){
 }
 
 function uploadFiles() {
-  const url = 'https://httpbin.org/post';
-  const method = 'post';
+//  const url = 'https://httpbin.org/post';
+  //const method = 'post';
 
-  const xhr = new XMLHttpRequest();
+  //const xhr = new XMLHttpRequest();
 
-  const data = new FormData(form);
-
-  xhr.open(method, url);
-  xhr.send(data);
+  //const data = new FormData(form);
+  var data = "tryAndError"
+  //xhr.open(method, url);
+  //xhr.send(data);
     
     //var user = firebase.auth().currentUser;
     var firebaseRef = firebase.database().ref();
