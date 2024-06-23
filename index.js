@@ -9,12 +9,12 @@ function uploadFiles() {
   const url = 'https://httpbin.org/post';
   const method = 'post';
 
-//  const xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
 
   const data = new FormData(form);
 
-//  xhr.open(method, url);
-  //xhr.send(data);
+  xhr.open(method, url);
+  xhr.send(data);
     
     //var user = firebase.auth().currentUser;
     var firebaseRef = firebase.database().ref();
@@ -130,8 +130,8 @@ if(checkUserEmailValid == null){
               window.location="signIn.html"
                 
             } 
-    }
-});
+    });
+}
 
 function home(){
   window.location="book_store.html"
