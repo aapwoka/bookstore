@@ -5,21 +5,84 @@ function showUploadForm(){
     document.getElementById("uploadForm").style.display="block";
 }
 
-function uploadFiles() {
+
+
+var fileSelector = document.getElementById("fileSelector");
+var fileItem;
+var fileName;
+function getBook(e){
+fileItem = e.target.files[0]
+fileName = fileItem.name
+console.log(fileItem)
+}
+
+function submitFile(){
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    // check email
+    if(firebaseUser){
+      var uid = firebaseUser.uid
+      console.log(uid)
+      }
+      )}
+
+let storageRef = firebase.storage().ref("books/"+fileName)
+storageRef.put(fileItem);
+console.log("inserterd")
+}
+//function uploadFiles() {
 //  const url = 'https://httpbin.org/post';
   //const method = 'post';
 
   //const xhr = new XMLHttpRequest();
 
   //const data = new FormData(form);
-  var data = "tryAndError"
+  //var data = "tryAndError"
   //xhr.open(method, url);
   //xhr.send(data);
     
     //var user = firebase.auth().currentUser;
-    var firebaseRef = firebase.database().ref();
-    var userRef = firebaseRef.child("myBookLIst")
-    userRef.push(data)
+   // var firebaseRef = firebase.database().ref();
+   // var userRef = firebaseRef.child("myBookLIst")
+   // userRef.set(data)
+//}
+
+
+const form = document.querySelector('form');
+form.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+}
+
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  uploadFiles();
+  renderFilesMetadata();
+}
+
+function uploadFiles() {
+  var url = 'https://httpbin.org/post';
+  var formData = new FormData(form);
+
+   var fetchOptions = {
+    method: 'post',
+    body: formData
+  };
+  console.log(fetchOptions)
+
+   fetch(url, fetchOptions);
+   var firebaseRef = firebase.database().ref();
+   var userRef = firebaseRef.child("myBookLIst")
+   userRef.push(fetchOptions)
+}
+
+const fileNum = document.getElementById("fileNum");
+
+function renderFilesMetadata(fileList) {
+  fileNum.textContent = fileList.length;
 }
 
 function checkUserFullName(){
@@ -129,8 +192,11 @@ if(checkUserEmailValid == null){
             window.alert("Succesfully Signed Up.Continue to sign In...").then((value) => {
               window.location="signIn.html"
                 
-            } 
-    });
+                } 
+            )
+    })
+    
+}
 }
 
 function home(){
@@ -218,36 +284,13 @@ function signIn(){
                 if(user) {
                   window.location = 'book_store.html'; //After successful login, user will be redirected
                 }
-            
+        })
 
         })
         
 }
-// xxxxxxxxxx Working For Profile Page xxxxxxxxxx
-// xxxxxxxxxx Get data from server and show in the page xxxxxxxxxx
-firebase.auth().onAuthStateChanged((user)=>{
-    if (user) {
-    //   User is signed in.
-        let user = firebase.auth().currentUser;
-        let uid
-        if(user != null){
-            uid = user.uid;
-        }
-        let firebaseRefKey = firebase.database().ref().child(uid);
-        firebaseRefKey.on('value', (dataSnapShot)=>{
-            document.getElementById("userPfFullName").innerHTML = dataSnapShot.val().userFullName;
-            document.getElementById("userPfSurname").innerHTML = dataSnapShot.val().userSurname;
-            // userEmail = dataSnapShot.val().userEmail;
-            // userPassword = dataSnapShot.val().userPassword;
-            document.getElementById("userPfFb").setAttribute('href', dataSnapShot.val().userFb);
-            document.getElementById("userPfTw").setAttribute('href', dataSnapShot.val().userTw);
-            document.getElementById("userPfGp").setAttribute('href', dataSnapShot.val().userGp);
-            document.getElementById("userPfBio").innerHTML = dataSnapShot.val().userBio;
-        })
-    } else {
-    //   No user is signed in.
-    }
-});
+}
+    
 // xxxxxxxxxx Show edit profile form with detail xxxxxxxxxx
 function showEditProfileForm(){
     document.getElementById("profileSection").style.display = "none"
