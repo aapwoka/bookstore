@@ -24,12 +24,14 @@
 
   <div id="uploadForm">
 
- <form>
-<input name="file" type="file"/>
-<button type="submit">Upload to library</button>
-</form>   
+
+<input name="file" type="file" id="fileSelector" onchange=getBook(event) multiple/>
+<button onclick="submitFile()">Upload to library</button>
+
+    
     
   </div>
+    <span id="fileNum">0</span>
 
   
 <div>
@@ -165,10 +167,12 @@
  <!-- Add Firebase products that you want to use -->
  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase-auth.js"></script>
  
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase-storage.js"></script>
+  
  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase-database.js"></script>
 
-  
  <script>
+ 
   // Your web app's Firebase configuration
   var firebaseConfig =   {
   apiKey: "AIzaSyCTt4dRFFg8_zjrG1nRnRhLxzhmn17PlMg",
