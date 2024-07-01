@@ -1,3 +1,4 @@
+displayPDFs();
 
 function showUploadForm(){
     document.getElementById("uploadForm").style.display="block";
@@ -14,11 +15,12 @@ fileName = fileItem.name
 console.log(fileItem)
 }
 
+var uid;
 function submitFile(){
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
-      var uid = firebaseUser.uid
+      uid = firebaseUser.uid
       console.log(uid)
         const storageRef = firebase.storage().ref(uid)
         const booksRef = storageRef.child("mybooks/"+fileName)
@@ -26,6 +28,52 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       }
       })
 }
+
+  // Function to display PDFs in the list trigger it by onloading the page/on sign in
+  function displayPDFs() {
+
+    const storageRef = firebase.storage().ref(uid)
+    const booksRef = storageRef.child("mybooks")
+    booksRef.listAll().then(function(result) {
+      const pdfList = document.getElementById('pdfList');
+
+      result.items.forEach(function(itemRef) {
+        // Display each PDF file as a list item
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.textContent = itemRef.name;
+        link.href = '#';
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          displayPDFContent(itemRef);
+        });
+        listItem.appendChild(link);
+        pdfList.appendChild(listItem);
+      });
+    }).catch(function(error) {
+      console.error('Error listing PDFs:', error);
+    });
+  }
+
+  // Function to display PDF content
+  function displayPDFContent(pdfRef) {
+    pdfRef.getDownloadURL().then(function(url) {
+      // Clear previous content in PDF viewer
+      const pdfViewer = document.getElementById('pdfViewer');
+      pdfViewer.innerHTML = '';
+
+      // Create a <embed> element to display PDF
+      const embed = document.createElement('embed');
+      embed.src = url;
+      embed.type = 'application/pdf';
+      embed.style.width = '100%';
+      embed.style.height = '600px'; // Adjust height as needed
+      pdfViewer.appendChild(embed);
+    }).catch(function(error) {
+      console.error('Error getting PDF content:', error);
+    });
+  }
+
 
 // xxxxxxxxxx Email Validation xxxxxxxxxx
 function checkUserEmail(){
