@@ -27,7 +27,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         const booksRef = storageRef.child("myBooks"+fileName)
         booksRef.put(fileItem)
       }
-      )}
+      })
 }
 //function uploadFiles() {
 //  const url = 'https://httpbin.org/post';
