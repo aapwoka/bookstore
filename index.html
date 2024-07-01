@@ -23,15 +23,13 @@
   The file form is here
 
   <div id="uploadForm">
-
-
 <input name="file" type="file" id="fileSelector" onchange=getBook(event) multiple/>
 <button onclick="submitFile()">Upload to library</button>
-
-    
-    
   </div>
-    <span id="fileNum">0</span>
+
+  <h1>List of PDF Files from Firebase Storage</h1>
+  <ul id="pdfList"></ul>
+  <div id="pdfViewer"></div>
 
   
 <div>
