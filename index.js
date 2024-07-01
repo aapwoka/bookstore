@@ -78,13 +78,11 @@ if(checkUserEmailValid == null){
             if (user != null) {
                 uid = user.uid;
             }
-            var firebaseRef = firebase.database().ref();
 
             window.alert("Succesfully Signed Up.Continue to sign In...").then((value) => {
               window.location="signIn.html"
                 
-                } 
-            )
+                })
     })
     
 }
