@@ -15,13 +15,11 @@ fileName = fileItem.name
 console.log(fileItem)
 }
 
-var uid;
 function submitFile(){
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
-      uid = firebaseUser.uid
-      console.log(uid)
+      var uid = firebaseUser.uid
         const storageRef = firebase.storage().ref(uid)
         const booksRef = storageRef.child("mybooks/"+fileName)
         booksRef.put(fileItem)
@@ -31,9 +29,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
   // Function to display PDFs in the list trigger it by onloading the page/on sign in
   function displayPDFs() {
+     
+    firebase.auth().onAuthStateChanged(firebaseUser=>{
+        if(firebaseUser){
+        var uid = firebaseUser.uid
 
     const storageRef = firebase.storage().ref(uid)
-    const booksRef = storageRef.child("mybooks")
+    const booksRef = storageRef.child("mybooks/")
     booksRef.listAll().then(function(result) {
       const pdfList = document.getElementById('pdfList');
 
@@ -53,6 +55,9 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }).catch(function(error) {
       console.error('Error listing PDFs:', error);
     });
+
+ }
+ })
   }
 
   // Function to display PDF content
