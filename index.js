@@ -21,7 +21,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       var uid = firebaseUser.uid
       console.log(uid)
         const storageRef = firebase.storage().ref(uid)
-        const booksRef = storageRef.child("myBooks"+fileName)
+        const booksRef = storageRef.child("mybooks/"+fileName)
         booksRef.put(fileItem)
       }
       })
