@@ -23,12 +23,11 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
       var uid = firebaseUser.uid
       console.log(uid)
+        const storageRef = firebase.storage().ref(uid)
+        const booksRef = storageRef.child("myBooks"+fileName)
+        booksRef.put(fileItem)
       }
       )}
-
-let storageRef = firebase.storage().ref("books/"+fileName)
-storageRef.put(fileItem);
-console.log("inserterd")
 }
 //function uploadFiles() {
 //  const url = 'https://httpbin.org/post';
